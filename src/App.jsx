@@ -5,10 +5,13 @@ import './App.css'
 
 function App() {
   const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     async function getImages() {
+      setLoading(true)
       const res = await fetch(`https://api.unsplash.com/photos/?client_id=${import.meta.env.VITE_UNSPLASH_KEY}`)
       const data = await res.json()
+      setLoading(false)
       setImages(data)
     }
     getImages()
@@ -21,7 +24,7 @@ function App() {
     <>
     <header><h1>Image Gallery</h1></header>
       <main className='images-container'>
-        {showImages}
+        {loading ? <p>Loading...</p> : showImages}
       </main>
     </>
   )

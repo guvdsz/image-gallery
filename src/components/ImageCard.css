@@ -1,8 +1,8 @@
 .image-card {
-    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 75vw;
+    max-width: 500px;
     height: 400px;
     border: 1px solid #a3a3a3;
     border-radius: 10px;
